@@ -2,8 +2,8 @@
 import React, { useRef, useEffect } from "react";
 
 export default function Liberation () {
-	const chainRef = useRef(null);
-    let scrollTimeout = useRef("");
+	const chainRef = useRef<HTMLElement>(null);
+    let scrollTimeout = useRef<number | null>(null);
 
     useEffect(() => {
         const handleScroll = () => {
@@ -13,9 +13,9 @@ export default function Liberation () {
             }
             // Remove after 200ms of inactivity
             if (scrollTimeout.current) {
-                clearTimeout(scrollTimeout.current);
+                window.clearTimeout(scrollTimeout.current);
             }
-            scrollTimeout.current = setTimeout(() => {
+            scrollTimeout.current = window.setTimeout(() => {
                 if (chainRef.current) {
                     chainRef.current.classList.remove('chain');
                 }
