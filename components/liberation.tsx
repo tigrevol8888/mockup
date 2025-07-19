@@ -3,7 +3,7 @@ import React, { useRef, useEffect } from "react";
 
 export default function Liberation () {
 	const chainRef = useRef(null);
-    let scrollTimeout = useRef();
+    let scrollTimeout = useRef("");
 
     useEffect(() => {
         const handleScroll = () => {
