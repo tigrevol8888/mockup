@@ -2,16 +2,14 @@
 import React, { useRef, useEffect } from "react";
 
 export default function Liberation () {
-	const chainRef = useRef<HTMLElement>(null);
+	const chainRef = useRef<SVGGElement | null>(null);
     let scrollTimeout = useRef<number | null>(null);
 
     useEffect(() => {
         const handleScroll = () => {
-            // Add the 'chain' class when scrolling
             if (chainRef.current) {
                 chainRef.current.classList.add('chain');
             }
-            // Remove after 200ms of inactivity
             if (scrollTimeout.current) {
                 window.clearTimeout(scrollTimeout.current);
             }
